@@ -17,7 +17,7 @@ import { Route as ContactIndexRouteImport } from './routes/contact/index'
 import { Route as AboutIndexRouteImport } from './routes/about/index'
 import { Route as PoetsPoetsIdIndexRouteImport } from './routes/poets/$poetsId/index'
 import { Route as authRegisterIndexRouteImport } from './routes/(auth)/register/index'
-import { Route as authRegisterLoginIndexRouteImport } from './routes/(auth)/register/login/index'
+import { Route as authLoginIndexRouteImport } from './routes/(auth)/login/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -59,9 +59,9 @@ const authRegisterIndexRoute = authRegisterIndexRouteImport.update({
   path: '/register/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const authRegisterLoginIndexRoute = authRegisterLoginIndexRouteImport.update({
-  id: '/(auth)/register/login/',
-  path: '/register/login/',
+const authLoginIndexRoute = authLoginIndexRouteImport.update({
+  id: '/(auth)/login/',
+  path: '/login/',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -72,9 +72,9 @@ export interface FileRoutesByFullPath {
   '/features': typeof FeaturesIndexRoute
   '/poems': typeof PoemsIndexRoute
   '/poets': typeof PoetsIndexRoute
+  '/login': typeof authLoginIndexRoute
   '/register': typeof authRegisterIndexRoute
   '/poets/$poetsId': typeof PoetsPoetsIdIndexRoute
-  '/register/login': typeof authRegisterLoginIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -83,9 +83,9 @@ export interface FileRoutesByTo {
   '/features': typeof FeaturesIndexRoute
   '/poems': typeof PoemsIndexRoute
   '/poets': typeof PoetsIndexRoute
+  '/login': typeof authLoginIndexRoute
   '/register': typeof authRegisterIndexRoute
   '/poets/$poetsId': typeof PoetsPoetsIdIndexRoute
-  '/register/login': typeof authRegisterLoginIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -95,9 +95,9 @@ export interface FileRoutesById {
   '/features/': typeof FeaturesIndexRoute
   '/poems/': typeof PoemsIndexRoute
   '/poets/': typeof PoetsIndexRoute
+  '/(auth)/login/': typeof authLoginIndexRoute
   '/(auth)/register/': typeof authRegisterIndexRoute
   '/poets/$poetsId/': typeof PoetsPoetsIdIndexRoute
-  '/(auth)/register/login/': typeof authRegisterLoginIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -108,9 +108,9 @@ export interface FileRouteTypes {
     | '/features'
     | '/poems'
     | '/poets'
+    | '/login'
     | '/register'
     | '/poets/$poetsId'
-    | '/register/login'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -119,9 +119,9 @@ export interface FileRouteTypes {
     | '/features'
     | '/poems'
     | '/poets'
+    | '/login'
     | '/register'
     | '/poets/$poetsId'
-    | '/register/login'
   id:
     | '__root__'
     | '/'
@@ -130,9 +130,9 @@ export interface FileRouteTypes {
     | '/features/'
     | '/poems/'
     | '/poets/'
+    | '/(auth)/login/'
     | '/(auth)/register/'
     | '/poets/$poetsId/'
-    | '/(auth)/register/login/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -142,9 +142,9 @@ export interface RootRouteChildren {
   FeaturesIndexRoute: typeof FeaturesIndexRoute
   PoemsIndexRoute: typeof PoemsIndexRoute
   PoetsIndexRoute: typeof PoetsIndexRoute
+  authLoginIndexRoute: typeof authLoginIndexRoute
   authRegisterIndexRoute: typeof authRegisterIndexRoute
   PoetsPoetsIdIndexRoute: typeof PoetsPoetsIdIndexRoute
-  authRegisterLoginIndexRoute: typeof authRegisterLoginIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -205,11 +205,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authRegisterIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/(auth)/register/login/': {
-      id: '/(auth)/register/login/'
-      path: '/register/login'
-      fullPath: '/register/login'
-      preLoaderRoute: typeof authRegisterLoginIndexRouteImport
+    '/(auth)/login/': {
+      id: '/(auth)/login/'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof authLoginIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -222,9 +222,9 @@ const rootRouteChildren: RootRouteChildren = {
   FeaturesIndexRoute: FeaturesIndexRoute,
   PoemsIndexRoute: PoemsIndexRoute,
   PoetsIndexRoute: PoetsIndexRoute,
+  authLoginIndexRoute: authLoginIndexRoute,
   authRegisterIndexRoute: authRegisterIndexRoute,
   PoetsPoetsIdIndexRoute: PoetsPoetsIdIndexRoute,
-  authRegisterLoginIndexRoute: authRegisterLoginIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

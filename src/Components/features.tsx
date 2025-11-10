@@ -1,4 +1,5 @@
 import { Lightbulb, BookOpen, Users, Mic, PenTool, Globe2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function FeaturesSection() {
   const features = [
@@ -37,30 +38,51 @@ export default function FeaturesSection() {
   return (
     <section className="py-20 bg-gradient-to-r from-[#EAF6FF] via-[#FFFFFF] to-[#EAF6FF]">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-3xl font-bold text-gray-800 mb-4"
+        >
           Astaamaha Maanso 💫
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: -15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-gray-600 max-w-2xl mx-auto mb-12"
+        >
           Maanso waxay isku xirtaa suugaan, hal-abuur, iyo bulshada — si afkeennu
           u ahaado mid nool oo kobcaya.
-        </p>
+        </motion.p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {features.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white p-8 border border-[#007ACC]/15 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white p-8 border border-[#007ACC]/15 rounded-2xl shadow-sm hover:shadow-lg transition duration-300"
             >
-              <div className="flex justify-center items-center mb-4">
+              <motion.div
+                whileHover={{ rotate: 5 }}
+                className="flex justify-center items-center mb-4"
+              >
                 <div className="bg-[#007ACC]/10 p-3 rounded-full border border-[#007ACC]/20">
                   {item.icon}
                 </div>
-              </div>
+              </motion.div>
               <h3 className="text-lg font-semibold text-[#007ACC] mb-2">
                 {item.title}
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

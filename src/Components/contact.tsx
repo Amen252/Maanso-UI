@@ -1,14 +1,16 @@
 import { Mail, Phone, MapPin } from "lucide-react";
-const Contact = () => {
-return (
-    <section className="relative min-h-screen bg-gradient-to-r from-[#EAF6FF] via-[#FFFFFF] to-[#EAF6FF] py-20 px-6">
-      {/* Decorative background shapes */}
-      <div className="absolute top-0 left-0 w-40 h-40 bg-[#007ACC]/10 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-52 h-52 bg-[#007ACC]/10 blur-3xl rounded-full"></div>
+import { motion } from "framer-motion";
 
+const Contact = () => {
+  return (
+    <section className="relative min-h-screen bg-gradient-to-r from-[#EAF6FF] via-[#FFFFFF] to-[#EAF6FF] py-20 px-6">
       <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Left - Info */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="text-4xl font-bold text-gray-800 mb-4">
             Nala Soo Xiriir <span className="text-[#007ACC]">Maanso</span>
           </h2>
@@ -18,24 +20,29 @@ return (
             Buuxi foomka ama nala soo xiriir si toos ah.
           </p>
 
-          <div className="space-y-4 text-gray-700">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-wrap gap-4 text-gray-700">
+            <button className="flex items-center gap-2 bg-[#EAF6FF] px-4 py-2 rounded-xl border border-[#007ACC]/20 hover:bg-[#007ACC]/10 transition">
               <Mail className="w-5 h-5 text-[#007ACC]" />
               <span>info@maanso.com</span>
-            </div>
-            <div className="flex items-center gap-3">
+            </button>
+            <button className="flex items-center gap-2 bg-[#EAF6FF] px-4 py-2 rounded-xl border border-[#007ACC]/20 hover:bg-[#007ACC]/10 transition">
               <Phone className="w-5 h-5 text-[#007ACC]" />
               <span>+252 618 972 047</span>
-            </div>
-            <div className="flex items-center gap-3">
+            </button>
+            <button className="flex items-center gap-2 bg-[#EAF6FF] px-4 py-2 rounded-xl border border-[#007ACC]/20 hover:bg-[#007ACC]/10 transition">
               <MapPin className="w-5 h-5 text-[#007ACC]" />
               <span>Mogadishu, Somalia</span>
-            </div>
+            </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right - Contact Form */}
-        <div className="bg-white border border-[#007ACC]/15 rounded-2xl shadow-md p-8">
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="bg-white border border-[#007ACC]/15 rounded-2xl shadow-md p-8"
+        >
           <form className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -63,8 +70,7 @@ return (
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Fariintaada
               </label>
-              <textarea type="text"
-                rows="5"
+              <textarea
                 placeholder="Qor fariintaada halkan..."
                 className="w-full border border-[#007ACC]/20 rounded-xl px-4 py-3 outline-none focus:border-[#007ACC] transition"
               ></textarea>
@@ -77,10 +83,10 @@ return (
               Dir Fariinta 💌
             </button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
-}
- 
+};
+
 export default Contact;

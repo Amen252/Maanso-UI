@@ -3,7 +3,7 @@ import { Sparkles } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-r from-[#007ACC]/10 via-[#EAF4FC]/20 to-[#FFFFFF] backdrop-blur-sm px-6 py-12 md:p-40 text-center transition-all duration-300">
+    <section className="bg-gradient-to-r from-[#007ACC]/10 via-[#EAF4FC]/20 to-[#FFFFFF] backdrop-blur-sm px-6 py-12 md:p-40 text-center transition-all duration-300 mt-10">
       <h1
         className="text-3xl sm:text-4xl font-semibold mb-4 leading-tight"
         style={{
@@ -32,7 +32,7 @@ const Hero = () => {
         >
           Daawo Gabayo
         </Link>
-        <Link to="/register" className="flex space-x-2 items-center bg-blue-500/10 border border-blue-500/20 rounded-md px-8 py-2 text-blue-900 font-medium hover:bg-blue-500/20 transition-colors duration-300">
+        <Link to="/register" className="flex space-x-2 items-center sm:text-center bg-blue-500/10 border border-blue-500/20 rounded-md px-8 py-2 text-blue-900 font-medium hover:bg-blue-500/20 transition-colors duration-300">
           <Sparkles className="text-blue-900" />
           <span>Nagu so Biir</span>
         </Link>

@@ -4,6 +4,7 @@ import FeaturesSection from '@/Components/features'
 import About from '@/Components/about'
 import TestimonialsSection from '@/Components/testmonial'
 import Contact from '@/Components/contact'
+import UpHero from '@/Components/upHero'
 export const Route = createFileRoute('/')({
   component: App,
 })
@@ -11,6 +12,7 @@ export const Route = createFileRoute('/')({
 function App() {
   return (
 <> 
+  <UpHero/>
   <Hero />
   <FeaturesSection />
   <About />
