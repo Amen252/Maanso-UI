@@ -3,44 +3,31 @@ import { ArrowRight, BookOpen } from "lucide-react";
 
 const UpHero = () => {
   return (
-    <section className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center overflow-hidden">
-
-      {/* Background Image */}
-      <img
-        src="/hadraawi.webp"
-        alt="Abwaan Soomaaliyeed"
-        className="absolute inset-0 w-full h-full object-cover object-top"
-      />
-
-      {/* Somali blue overlay */}
-      <div className="absolute inset-0 bg-[#007ACC]/70" />
+    <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden bg-[#007ACC]">
 
       {/* Content */}
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28 text-white">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-28 text-white">
 
         {/* Label */}
-        <span className="inline-flex items-center gap-2 mb-5 sm:mb-8 text-[11px] sm:text-sm tracking-widest uppercase text-white/90">
+        <span className="inline-flex items-center gap-2 mb-4 sm:mb-6 text-[10px] sm:text-xs tracking-widest uppercase text-white/90">
           <BookOpen className="w-4 h-4" />
           Madal Suugaaneed Soomaaliyeed
         </span>
 
         {/* Headline */}
         <h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight max-w-3xl mb-6 sm:mb-10"
+          className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold leading-snug sm:leading-tight max-w-3xl mb-5 sm:mb-8"
           style={{ fontFamily: '"Playfair Display", serif' }}
         >
           Suugaantu ma aha wax la iloobo —
           <br />
-          <span className="text-white">
-            waa wax la ilaaliyo
-          </span>
+          <span className="text-white">waa wax la ilaaliyo</span>
         </h1>
 
         {/* Description */}
-        <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl leading-relaxed mb-8 sm:mb-14">
-          Maanso waa madal casri ah oo ururisa, nidaamisa,
-          kuna faafisa suugaanta Soomaaliyeed si ay u gaarto
-          jiil walba una sii noolaato.
+        <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl leading-relaxed mb-7 sm:mb-12">
+          Maanso waa madal casri ah oo ururisa, nidaamisa, kuna faafisa
+          suugaanta Soomaaliyeed si ay u gaarto jiil walba una sii noolaato.
         </p>
 
         {/* Actions */}
