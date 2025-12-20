@@ -48,50 +48,53 @@ const steps = [
 
 export default function FeaturesTimeline() {
   return (
-    <section className="py-28 bg-[#f6faff]">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-20 sm:py-24 md:py-28 bg-[#f6faff]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
-        <div className="mb-20 max-w-2xl">
-          <h2 className="text-4xl font-semibold text-slate-900 mb-4">
+        <div className="mb-14 sm:mb-16 md:mb-20 max-w-2xl">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 mb-3 sm:mb-4">
             Sida Maanso u Shaqeyso
           </h2>
-          <p className="text-slate-600 text-lg">
+          <p className="text-slate-600 text-base sm:text-lg">
             Maanso waa madal nidaamsan oo suugaanta Soomaaliyeed u qaabeysa si
             casri ah oo waara.
           </p>
         </div>
 
         {/* Timeline */}
-        <div className="space-y-12">
+        <div className="space-y-10 sm:space-y-12">
           {steps.map((item, index) => {
             const Icon = item.icon;
 
             return (
-              <div key={index} className="flex gap-6 items-start">
-                
-                {/* Left icon + line */}
-                <div className="relative flex flex-col items-center">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#4189DD] text-white">
-                    <Icon className="w-6 h-6" />
+              <div
+                key={index}
+                className="flex gap-4 sm:gap-6 items-start"
+              >
+                {/* Icon + line */}
+                <div className="relative flex flex-col items-center flex-shrink-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-[#4189DD] text-white">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
 
+                  {/* Line (hidden on very small screens) */}
                   {index !== steps.length - 1 && (
-                    <div className="w-px h-full bg-[#4189DD]/30 mt-2" />
+                    <div className="hidden sm:block w-px h-full bg-[#4189DD]/30 mt-2" />
                   )}
                 </div>
 
-                {/* Right card */}
-                <div className="flex-1 bg-white border border-[#4189DD]/20 rounded-xl p-6 shadow-sm">
-                  <span className="text-sm font-medium text-[#4189DD]">
+                {/* Card */}
+                <div className="flex-1 bg-white border border-[#4189DD]/20 rounded-xl p-4 sm:p-6 shadow-sm">
+                  <span className="text-xs sm:text-sm font-medium text-[#4189DD]">
                     {item.step}
                   </span>
 
-                  <h3 className="text-xl font-semibold text-slate-900 mt-1 mb-2">
+                  <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mt-1 mb-2">
                     {item.title}
                   </h3>
 
-                  <p className="text-slate-600 leading-relaxed">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
