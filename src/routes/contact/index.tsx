@@ -5,5 +5,9 @@ export const Route = createFileRoute("/contact/")({
 });
 
 function ContactPage() {
-  return <Contact />;
+  return (
+    <>
+      <Contact />
+    </>
+  );
 }

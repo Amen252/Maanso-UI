@@ -1,59 +1,52 @@
 "use client";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 
 const UpHero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center  to-white py-20 px-6 overflow-hidden">
-      <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-        {/* Left Side - Text */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-6"
+    <section className="relative min-h-[80vh] flex items-center overflow-hidden">
+
+      {/* Background Image */}
+      {/* Somali blue overlay */}
+      <div className="absolute inset-0 bg-[#007ACC]/70" />
+
+      {/* Content */}
+      <div className="relative max-w-6xl mx-auto px-6 py-32 text-white">
+
+        {/* Label */}
+        <span className="inline-flex items-center gap-2 mb-8 text-sm tracking-widest uppercase text-white/90">
+          <BookOpen className="w-4 h-4" />
+          Madal Suugaaneed Soomaaliyeed
+        </span>
+
+        {/* Headline */}
+        <h1
+          className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight max-w-3xl mb-10"
+          style={{ fontFamily: '"Playfair Display", serif' }}
         >
-          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-              kuso Dhawoow <span className="text-[#007ACC]">Maanso</span>
-          </h1>
+          Suugaantu ma aha wax la iloobo —
+          <br />
+          <span className="text-white">
+            waa wax la ilaaliyo
+          </span>
+        </h1>
 
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-lg">
-            Maanso waa goobta lagu soo bandhigo suugaanta iyo hal-abuurka
-            Abwaanada Soomaaliyeed. Halkan waxaad ka heli doontaa gabayo hodan
-            ah, xikmad iyo hal-abuur aan dhamaanayn.
-          </p>
-          <div className="flex flex-col md:flex-row gap-4 mt-6">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center justify-center gap-2 bg-[#007ACC] text-white px-6 py-3 rounded-md font-medium shadow-md hover:bg-[#005f99] transition-all duration-300"
-            >
-              Sahami Gabayo <ArrowRight className="w-5 h-5" />
-            </motion.button>
+        {/* Description */}
+        <p className="text-lg text-white/90 max-w-2xl leading-relaxed mb-14">
+          Maanso waa madal casri ah oo ururisa, nidaamisa,
+          kuna faafisa suugaanta Soomaaliyeed si ay u gaarto
+          jiil walba una sii noolaato.
+        </p>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center justify-center gap-2 border border-gray-300 text-[#007ACC] px-6 py-3 rounded-md font-medium shadow-md hover:bg-gray-100 transition-all duration-300"
-            >
-              Baro Abwaanada <ArrowRight className="w-5 h-5" />
-            </motion.button>
-          </div>
-        </motion.div>
+        {/* Actions */}
+        <div className="flex flex-wrap gap-6">
+          <button className="inline-flex items-center gap-2 bg-white text-[#007ACC] px-8 py-3 font-medium hover:bg-white/90 transition">
+            Sahami Gabayo <ArrowRight size={18} />
+          </button>
 
-        {/* Right Side - Image */}
-        <motion.div
-          initial={{ opacity: 0, x: 60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-          className="flex justify-center"
-        >
-          <img
-            src="/hadraawi.webp"
-            alt="Maanso Hero"
-            className="w-full max-w-md md:max-w-lg rounded-2xl shadow-xl object-cover transform hover:scale-105 transition-transform duration-500"
-          />
-        </motion.div>
+          <button className="inline-flex items-center gap-2 border border-white/60 px-8 py-3 font-medium hover:bg-white/10 transition">
+            Baro Abwaanada
+          </button>
+        </div>
       </div>
     </section>
   );

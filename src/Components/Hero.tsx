@@ -1,41 +1,65 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles } from "lucide-react";
+import { Feather, BookOpen } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-r from-[#007ACC]/10 via-[#EAF4FC]/20 to-[#FFFFFF] backdrop-blur-sm px-6 py-12 md:p-40 text-center transition-all duration-300 mt-10">
-      <h1
-        className="text-3xl sm:text-4xl font-semibold mb-4 leading-tight"
-        style={{
-          fontFamily: '"Playfair Display", serif',
-          color: "#b007e9ff",
-        }}
-      >
-        Hal-abuurka Soomaaliyeed Wuu Nool Yahay 💡
-      </h1>
+    <section className="relative px-6 py-24 md:py-36 bg-[#f6faff] text-center overflow-hidden">
 
-      <p
-        className="text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto px-2"
-        style={{
-          color: "#1381d5ff",
-          fontFamily: '"Poppins", sans-serif',
-        }}
-      >
-        Maanso waa madal lagu xoojinayo afka, dhaqanka, iyo suugaanta Soomaaliyeed.  
-        Kani waa meeshii gabaygu ku nool yahay.
-      </p>
+      {/* subtle background wash */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(65,137,221,0.08),transparent_70%)]" />
 
-      <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-        <Link
-          to="/poems"
-          className="bg-[#007ACC] text-white font-semibold px-8 py-3 rounded-md hover:opacity-90  transition-transform duration-300"
+      {/* Content */}
+      <div className="relative max-w-4xl mx-auto">
+
+        {/* Label */}
+        <span className="inline-flex items-center gap-2 mb-8 text-xs tracking-widest uppercase text-[#4189DD]">
+          <BookOpen className="w-4 h-4" />
+          Suugaan • Dhaqan • Hal-abuur
+        </span>
+
+        {/* Title */}
+        <h1
+          className="text-4xl sm:text-5xl md:text-6xl font-medium leading-tight mb-10"
+          style={{
+            fontFamily: '"Playfair Display", serif',
+            color: "#0f172a",
+          }}
         >
-          Daawo Gabayo
-        </Link>
-        <Link to="/register" className="flex space-x-2 items-center sm:text-center bg-blue-500/10 border border-blue-500/20 rounded-md px-8 py-2 text-blue-900 font-medium hover:bg-blue-500/20 transition-colors duration-300">
-          <Sparkles className="text-blue-900" />
-          <span>Nagu so Biir</span>
-        </Link>
+          Hal-abuurka Soomaaliyeed  
+          <br />
+          <span className="text-[#4189DD]">wuu nool yahay</span>
+        </h1>
+
+        {/* Divider */}
+        <div className="mx-auto mb-10 h-px w-24 bg-[#4189DD]/40" />
+
+        {/* Description */}
+        <p
+          className="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600"
+          style={{ fontFamily: '"Poppins", sans-serif' }}
+        >
+          <span className="italic text-slate-700">Maanso</span> waa hoyga suugaanta Soomaaliyeed —
+          meel ay gabayada, geeraarrada, iyo hal-abuurku ku kulmaan,
+          kuna gudbaan xusuus iyo jiilal kala dambeeya.
+        </p>
+
+        {/* Actions */}
+        <div className="mt-14 flex flex-col sm:flex-row justify-center gap-6">
+          <Link
+            to="/poems"
+            className="inline-flex items-center gap-3 border border-[#4189DD] px-8 py-3 text-[#4189DD] hover:bg-[#4189DD] hover:text-white transition-all"
+          >
+            <Feather size={18} />
+            Akhri Gabayo
+          </Link>
+
+          <Link
+            to="/register"
+            className="inline-flex items-center gap-3 text-slate-700 hover:text-[#4189DD] underline underline-offset-8"
+          >
+            Ku Biir Maanso
+          </Link>
+        </div>
       </div>
     </section>
   );

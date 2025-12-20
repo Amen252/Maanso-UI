@@ -1,89 +1,103 @@
-import { Lightbulb, BookOpen, Users, Mic, PenTool, Globe2 } from "lucide-react";
-import { motion } from "framer-motion";
+import {
+  Lightbulb,
+  BookOpen,
+  Users,
+  Mic,
+  PenTool,
+  Globe2,
+} from "lucide-react";
 
-export default function FeaturesSection() {
-  const features = [
-    {
-      icon: <Lightbulb className="w-8 h-8 text-[#007ACC]" />,
-      title: "Hal-abuur Cusub",
-      desc: "Ku dhiirrigeli hal-abuurka Soomaaliyeed iyo jiilalka soo socda in ay abuuraan gabayo cusub.",
-    },
-    {
-      icon: <BookOpen className="w-8 h-8 text-[#007ACC]" />,
-      title: "Ururinta Gabayada",
-      desc: "Maanso waa keyd suugaaneed oo ururiya gabayadii hore iyo kuwa cusub si loo sii ilaaliyo dhaqanka.",
-    },
-    {
-      icon: <Users className="w-8 h-8 text-[#007ACC]" />,
-      title: "Bulsho Isku Xiran",
-      desc: "Ku biir abwaanno, qoraayaal, iyo akhristayaal jecel suugaanta iyo afka hooyo.",
-    },
-    {
-      icon: <Mic className="w-8 h-8 text-[#007ACC]" />,
-      title: "Cod & Muuqaal",
-      desc: "Daawo ama dhagayso gabayo si toos ah, si suugaantu u noqoto mid la dareemi karo.",
-    },
-    {
-      icon: <PenTool className="w-8 h-8 text-[#007ACC]" />,
-      title: "Tafatir & Qorid",
-      desc: "Qor gabayadaada si fudud, tafatir, kuna keydi madasha Maanso.",
-    },
-    {
-      icon: <Globe2 className="w-8 h-8 text-[#007ACC]" />,
-      title: "Suugaan Caalami ah",
-      desc: "Ku xir hal-abuurka caalamka oo la wadaag suugaanta Soomaaliyeed.",
-    },
-  ];
+const steps = [
+  {
+    step: "Tallaabo 01",
+    title: "Hal-abuur Cusub",
+    desc: "Abwaannadu waxay helayaan meel ay ku soo bandhigaan gabayo cusub oo hal-abuur leh.",
+    icon: Lightbulb,
+  },
+  {
+    step: "Tallaabo 02",
+    title: "Ururinta Gabayada",
+    desc: "Maanso waxay noqotaa keyd suugaaneed oo lagu kaydiyo gabayo hore iyo kuwo casri ah.",
+    icon: BookOpen,
+  },
+  {
+    step: "Tallaabo 03",
+    title: "Bulsho Isku Xiran",
+    desc: "Abwaanno, qoraayaal, iyo akhristayaal ayaa hal meel ku kulmaya.",
+    icon: Users,
+  },
+  {
+    step: "Tallaabo 04",
+    title: "Cod & Muuqaal",
+    desc: "Gabayada waxaa lagu dhageysan karaa ama lagu daawan karaa cod iyo muuqaal.",
+    icon: Mic,
+  },
+  {
+    step: "Tallaabo 05",
+    title: "Qorid & Tafatir",
+    desc: "Qalab kuu sahlaya qorista, tafatirka, iyo kaydinta gabayadaada.",
+    icon: PenTool,
+  },
+  {
+    step: "Tallaabo 06",
+    title: "Suugaan Caalami ah",
+    desc: "Suugaanta Soomaaliyeed oo gaarta akhristayaal caalami ah.",
+    icon: Globe2,
+  },
+];
 
+export default function FeaturesTimeline() {
   return (
-    <section className="py-20 bg-gradient-to-r from-[#EAF6FF] via-[#FFFFFF] to-[#EAF6FF]">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-3xl font-bold text-gray-800 mb-4"
-        >
-          Astaamaha Maanso 💫
-        </motion.h2>
+    <section className="py-28 bg-[#f6faff]">
+      <div className="max-w-6xl mx-auto px-6">
 
-        <motion.p
-          initial={{ opacity: 0, y: -15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-gray-600 max-w-2xl mx-auto mb-12"
-        >
-          Maanso waxay isku xirtaa suugaan, hal-abuur, iyo bulshada — si afkeennu
-          u ahaado mid nool oo kobcaya.
-        </motion.p>
+        {/* Header */}
+        <div className="mb-20 max-w-2xl">
+          <h2 className="text-4xl font-semibold text-slate-900 mb-4">
+            Sida Maanso u Shaqeyso
+          </h2>
+          <p className="text-slate-600 text-lg">
+            Maanso waa madal nidaamsan oo suugaanta Soomaaliyeed u qaabeysa si
+            casri ah oo waara.
+          </p>
+        </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {features.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white p-8 border border-[#007ACC]/15 rounded-2xl shadow-sm hover:shadow-lg transition duration-300"
-            >
-              <motion.div
-                whileHover={{ rotate: 5 }}
-                className="flex justify-center items-center mb-4"
-              >
-                <div className="bg-[#007ACC]/10 p-3 rounded-full border border-[#007ACC]/20">
-                  {item.icon}
+        {/* Timeline */}
+        <div className="space-y-12">
+          {steps.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <div key={index} className="flex gap-6 items-start">
+                
+                {/* Left icon + line */}
+                <div className="relative flex flex-col items-center">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#4189DD] text-white">
+                    <Icon className="w-6 h-6" />
+                  </div>
+
+                  {index !== steps.length - 1 && (
+                    <div className="w-px h-full bg-[#4189DD]/30 mt-2" />
+                  )}
                 </div>
-              </motion.div>
-              <h3 className="text-lg font-semibold text-[#007ACC] mb-2">
-                {item.title}
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-            </motion.div>
-          ))}
+
+                {/* Right card */}
+                <div className="flex-1 bg-white border border-[#4189DD]/20 rounded-xl p-6 shadow-sm">
+                  <span className="text-sm font-medium text-[#4189DD]">
+                    {item.step}
+                  </span>
+
+                  <h3 className="text-xl font-semibold text-slate-900 mt-1 mb-2">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-slate-600 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

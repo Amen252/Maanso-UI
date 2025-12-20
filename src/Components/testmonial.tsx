@@ -5,77 +5,87 @@ export default function TestimonialsSection() {
   const testimonials = [
     {
       name: "Ismail Abdifadil",
-      role: "Full stack dev at JTECH",
+      role: "Full-Stack Developer — JTECH",
       quote:
         "Maanso waa meel aan ku dhiirranaado inaan hal-abuurkeyga la wadaago. Waa hoygii suugaanta Soomaaliyeed.",
       image: "/ismail.jpg",
     },
     {
       name: "Sadak Mohamed",
-      role: "Developer & Suugaan jecel",
+      role: "Developer & Suugaan-jecel",
       quote:
-        "Waxaan ka helay Maanso fursad aan ku akhriyo gabayo cusub iyo kuwa hore, waa madal waxbarasho iyo hal-abuur.",
+        "Waxaan ka helay Maanso fursad aan ku akhriyo gabayo cusub iyo kuwa hore. Waa madal waxbarasho iyo hal-abuur.",
       image: "/sadak.jpg",
     },
     {
       name: "Hodan Ibrahim",
       role: "Data Scientist & Developer",
       quote:
-        "Maanso waxay igu dhiirrigelisay inaan dib u soo xasuusto suugaantii hore iyo quruxda afkeenna hooyo.",
+        "Maanso waxay igu dhiirrigelisay inaan dib u xasuusto suugaantii hore iyo quruxda afkeenna hooyo.",
       image: "/mare.jpg",
     },
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-r from-[#EAF6FF] via-[#FFFFFF] to-[#EAF6FF] text-center relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-40 h-40 bg-[#007ACC]/10 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-52 h-52 bg-[#007ACC]/10 blur-3xl rounded-full"></div>
+    <section className="py-28 bg-[#f6faff]">
+      <div className="max-w-7xl mx-auto px-6">
 
-      <div className="relative max-w-6xl mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-3xl font-bold text-gray-800 mb-4"
-        >
-          Fikradaha Bulshada 💭
-        </motion.h2>
+        {/* Header */}
+        <div className="max-w-2xl mb-20">
+          <h2
+            className="text-4xl md:text-5xl font-medium text-slate-900 mb-6"
+            style={{ fontFamily: '"Playfair Display", serif' }}
+          >
+            Codadka <span className="text-[#4189DD]">Maanso</span>
+          </h2>
+          <p className="text-slate-600 text-lg">
+            Dadka jecel suugaanta Soomaaliyeed waxay nala wadaagayaan
+            dareenkooda iyo waayo-aragnimadooda.
+          </p>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-gray-600 mb-12 max-w-2xl mx-auto"
-        >
-          Dadka jecel suugaanta Soomaaliyeed waxay ka sheegeen waxa ay ka heleen Maanso.
-        </motion.p>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
           {testimonials.map((t, index) => (
-            <motion.div
+            <motion.article
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.03 }}
-              className="bg-white border border-[#007ACC]/15 rounded-2xl px-4 py-9 shadow-sm hover:shadow-lg transition duration-300"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-white shadow-sm border border-slate-200"
             >
-              <Quote className="w-6 h-6 text-[#007ACC] mx-auto mb-4 opacity-70" />
-              <p className="text-gray-700 italic mb-6">“{t.quote}”</p>
-              <div className="flex flex-col items-center">
+              {/* Top blue rule */}
+              <div className="h-1 bg-[#4189DD]" />
+
+              {/* Header with image */}
+              <div className="flex items-center gap-4 px-8 pt-8">
                 <img
                   src={t.image}
                   alt={t.name}
-                  className="w-14 h-14 rounded-full object-cover mb-3 border border-[#007ACC]/20"
+                  className="w-16 h-16 rounded-lg object-cover border border-slate-200"
                 />
-                <h3 className="font-semibold text-[#007ACC]">{t.name}</h3>
-                <p className="text-gray-500 text-sm">{t.role}</p>
+                <div>
+                  <div className="font-semibold text-slate-900">
+                    {t.name}
+                  </div>
+                  <div className="text-sm text-slate-500">
+                    {t.role}
+                  </div>
+                </div>
               </div>
-            </motion.div>
+
+              {/* Content */}
+              <div className="px-8 pb-10 pt-6">
+                <Quote className="w-6 h-6 text-[#4189DD]/50 mb-4" />
+                <p
+                  className="text-slate-800 leading-relaxed"
+                  style={{ fontFamily: '"Playfair Display", serif' }}
+                >
+                  “{t.quote}”
+                </p>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>
