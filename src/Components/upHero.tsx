@@ -3,7 +3,7 @@ import { ArrowRight, BookOpen } from "lucide-react";
 
 const UpHero = () => {
   return (
-    <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden bg-[#007ACC]">
+    <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden bg-[#007ACC] relative overflow-hidden touch-pan-y">
 
       {/* Content */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-28 text-white">
