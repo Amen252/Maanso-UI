@@ -27,59 +27,59 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-28 bg-[#f6faff]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 sm:py-24 md:py-28 bg-[#f6faff]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
-        <div className="max-w-2xl mb-20">
+        <div className="max-w-2xl mb-14 sm:mb-16 md:mb-20">
           <h2
-            className="text-4xl md:text-5xl font-medium text-slate-900 mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-medium text-slate-900 mb-4 sm:mb-6"
             style={{ fontFamily: '"Playfair Display", serif' }}
           >
             Codadka <span className="text-[#4189DD]">Maanso</span>
           </h2>
-          <p className="text-slate-600 text-lg">
+          <p className="text-slate-600 text-base sm:text-lg">
             Dadka jecel suugaanta Soomaaliyeed waxay nala wadaagayaan
             dareenkooda iyo waayo-aragnimadooda.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-14">
           {testimonials.map((t, index) => (
             <motion.article
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white shadow-sm border border-slate-200"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white shadow-sm border border-slate-200 flex flex-col"
             >
               {/* Top blue rule */}
               <div className="h-1 bg-[#4189DD]" />
 
-              {/* Header with image */}
-              <div className="flex items-center gap-4 px-8 pt-8">
+              {/* Header */}
+              <div className="flex items-center gap-4 px-6 sm:px-8 pt-6 sm:pt-8">
                 <img
                   src={t.image}
                   alt={t.name}
-                  className="w-16 h-16 rounded-lg object-cover border border-slate-200"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg object-cover border border-slate-200 flex-shrink-0"
                 />
-                <div>
-                  <div className="font-semibold text-slate-900">
+                <div className="min-w-0">
+                  <div className="font-semibold text-slate-900 truncate">
                     {t.name}
                   </div>
-                  <div className="text-sm text-slate-500">
+                  <div className="text-sm text-slate-500 truncate">
                     {t.role}
                   </div>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="px-8 pb-10 pt-6">
-                <Quote className="w-6 h-6 text-[#4189DD]/50 mb-4" />
+              <div className="px-6 sm:px-8 pb-8 sm:pb-10 pt-5 sm:pt-6 flex-1">
+                <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-[#4189DD]/50 mb-3 sm:mb-4" />
                 <p
-                  className="text-slate-800 leading-relaxed"
+                  className="text-slate-800 text-sm sm:text-base leading-relaxed"
                   style={{ fontFamily: '"Playfair Display", serif' }}
                 >
                   “{t.quote}”
