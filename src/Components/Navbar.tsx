@@ -21,9 +21,8 @@ const NavBar = () => {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-slate-200">
+      <nav className="fixed top-0 z-50 backdrop-blur-md bg-white/70 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-
           {/* Logo */}
           <Link
             to="/"
@@ -38,10 +37,18 @@ const NavBar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className={navLink("/")}>Bogga Hore</Link>
-            <Link to="/poems" className={navLink("/poems")}>Gabayo</Link>
-            <Link to="/poets" className={navLink("/poets")}>Abwaanada</Link>
-            <Link to="/contact" className={navLink("/contact")}>Nala Soo Xiriir</Link>
+            <Link to="/" className={navLink("/")}>
+              Bogga Hore
+            </Link>
+            <Link to="/poems" className={navLink("/poems")}>
+              Gabayo
+            </Link>
+            <Link to="/poets" className={navLink("/poets")}>
+              Abwaanada
+            </Link>
+            <Link to="/contact" className={navLink("/contact")}>
+              Nala Soo Xiriir
+            </Link>
           </div>
 
           {/* Desktop Actions */}
@@ -83,7 +90,6 @@ const NavBar = () => {
         }`}
       >
         <div className="px-4 py-6 space-y-2">
-
           {[
             { to: "/", label: "Bogga Hore" },
             { to: "/poems", label: "Gabayo" },
