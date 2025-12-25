@@ -1,14 +1,23 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X, Feather } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // current route
   const pathname = useRouterState({
     select: (state) => state.location.pathname,
   });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLink = (to: string) =>
     `relative font-medium transition
@@ -21,7 +30,9 @@ const NavBar = () => {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="fixed top-0 z-50 backdrop-blur-md bg-white/70 border-b border-slate-200">
+      <nav
+        className={`fixed top-0 z-50 backdrop-blur-md bg-white/70 border-b border-slate-200 transition-shadow duration-300 ${isScrolled ? "shadow-lg bg-white/90" : ""}`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link
