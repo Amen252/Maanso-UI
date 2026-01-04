@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Feather, BookOpen, ChevronRight, PenTool } from "lucide-react";
+import { Feather,  ChevronRight, PenTool } from "lucide-react";
 
 const Hero = () => {
   return (
