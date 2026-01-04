@@ -1,54 +1,74 @@
-import { Facebook, Twitter, Youtube, Mail } from "lucide-react";
+"use client";
+import React from 'react';
+import { Facebook, Twitter, Youtube, Mail, Command } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-[#EAF6FF] via-[#FFFFFF] to-[#EAF6FF] border-t border-[#007ACC]/10 mt-20">
-      <div className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-10">
-        
-        {/* Brand */}
-        <div>
-          <h2 className="text-2xl font-bold text-[#007ACC] mb-3">Maanso</h2>
-          <p className="text-gray-600 text-sm leading-relaxed">
-            Maanso waa madal lagu xoojinayo suugaanta Soomaaliyeed —
-            ururinta, dhiirrigelinta iyo wadaagga gabayada iyo hal-abuurka.
-          </p>
-        </div>
-
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">Bogagga Degdegga ah</h3>
-          <ul className="space-y-2 text-gray-600 text-sm">
-            <li><a href="/" className="hover:text-[#007ACC] transition">Home</a></li>
-            <li><a href="/features" className="hover:text-[#007ACC] transition">Astaamaha</a></li>
-            <li><a href="/about" className="hover:text-[#007ACC] transition">Ku Saabsan</a></li>
-            <li><a href="/contact" className="hover:text-[#007ACC] transition">La Xiriir</a></li>
-          </ul>
-        </div>
-
-        {/* Social / Contact */}
-        <div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">La Soco Maanso</h3>
-          <div className="flex gap-4 mb-4">
-            <a href="#" className="text-[#007ACC] hover:text-[#005E99] transition">
-              <Facebook className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-[#007ACC] hover:text-[#005E99] transition">
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-[#007ACC] hover:text-[#005E99] transition">
-              <Youtube className="w-5 h-5" />
-            </a>
-            <a href="mailto:info@maanso.com" className="text-[#007ACC] hover:text-[#005E99] transition">
-              <Mail className="w-5 h-5" />
-            </a>
+    <footer className="bg-white border-t border-slate-100 mt-24">
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+          
+          {/* Brand Identity */}
+          <div className="col-span-1 md:col-span-2 space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-[#007ACC] text-white">
+                <Command size={20} strokeWidth={2.5} />
+              </div>
+              <span className="text-2xl font-semibold tracking-tight text-slate-900">
+                Maanso<span className="text-[#007ACC]">.</span>
+              </span>
+            </div>
+            <p className="text-slate-500 text-base font-medium leading-relaxed max-w-sm">
+              Maanso waa madal lagu xoojinayo suugaanta Soomaaliyeed — ururinta, dhiirrigelinta iyo wadaagga gabayada iyo hal-abuurka.
+            </p>
           </div>
-          <p className="text-gray-600 text-sm">info@maanso.com</p>
-        </div>
-      </div>
 
-      {/* Bottom */}
-      <div className="border-t border-[#007ACC]/10 py-6 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} Maanso — Dhammaan xuquuqdu way xafidan tahay.
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900 mb-6">Bogagga</h3>
+            <ul className="space-y-4 text-slate-500 font-medium">
+              <li><a href="/" className="hover:text-[#007ACC] transition-colors">Home</a></li>
+              <li><a href="/features" className="hover:text-[#007ACC] transition-colors">Astaamaha</a></li>
+              <li><a href="/about" className="hover:text-[#007ACC] transition-colors">Ku Saabsan</a></li>
+              <li><a href="/contact" className="hover:text-[#007ACC] transition-colors">La Xiriir</a></li>
+            </ul>
+          </div>
+
+          {/* Social / Contact */}
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900 mb-6">La Soco Maanso</h3>
+            <div className="flex gap-4 mb-6">
+              {[
+                { Icon: Facebook, href: "#" },
+                { Icon: Twitter, href: "#" },
+                { Icon: Youtube, href: "#" },
+                { Icon: Mail, href: "mailto:info@maanso.com" }
+              ].map(({ Icon, href }, idx) => (
+                <a 
+                  key={idx} 
+                  href={href} 
+                  className="w-10 h-10 rounded-lg bg-slate-50 text-slate-400 flex items-center justify-center hover:bg-[#007ACC] hover:text-white transition-all duration-300"
+                >
+                  <Icon size={18} strokeWidth={2} />
+                </a>
+              ))}
+            </div>
+            <p className="text-slate-900 font-semibold tracking-wide underline decoration-[#007ACC] underline-offset-4 decoration-2">
+              info@maanso.com
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-20 pt-8 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-400 text-sm font-medium">
+            © {new Date().getFullYear()} Maanso Archive. Dhammaan xuquuqdu way xafidan tahay.
+          </p>
+          <div className="flex gap-8">
+            <a href="#" className="text-xs font-bold text-slate-400 uppercase tracking-widest hover:text-slate-900 transition-colors">Privacy</a>
+            <a href="#" className="text-xs font-bold text-slate-400 uppercase tracking-widest hover:text-slate-900 transition-colors">Terms</a>
+          </div>
+        </div>
       </div>
     </footer>
   );

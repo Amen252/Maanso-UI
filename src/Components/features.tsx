@@ -1,3 +1,5 @@
+"use client";
+import React from 'react';
 import {
   Lightbulb,
   BookOpen,
@@ -5,103 +7,75 @@ import {
   Mic,
   PenTool,
   Globe2,
+  ArrowRight
 } from "lucide-react";
 
 const steps = [
-  {
-    step: "Tallaabo 01",
-    title: "Hal-abuur Cusub",
-    desc: "Abwaannadu waxay helayaan meel ay ku soo bandhigaan gabayo cusub oo hal-abuur leh.",
-    icon: Lightbulb,
-  },
-  {
-    step: "Tallaabo 02",
-    title: "Ururinta Gabayada",
-    desc: "Maanso waxay noqotaa keyd suugaaneed oo lagu kaydiyo gabayo hore iyo kuwo casri ah.",
-    icon: BookOpen,
-  },
-  {
-    step: "Tallaabo 03",
-    title: "Bulsho Isku Xiran",
-    desc: "Abwaanno, qoraayaal, iyo akhristayaal ayaa hal meel ku kulmaya.",
-    icon: Users,
-  },
-  {
-    step: "Tallaabo 04",
-    title: "Cod & Muuqaal",
-    desc: "Gabayada waxaa lagu dhageysan karaa ama lagu daawan karaa cod iyo muuqaal.",
-    icon: Mic,
-  },
-  {
-    step: "Tallaabo 05",
-    title: "Qorid & Tafatir",
-    desc: "Qalab kuu sahlaya qorista, tafatirka, iyo kaydinta gabayadaada.",
-    icon: PenTool,
-  },
-  {
-    step: "Tallaabo 06",
-    title: "Suugaan Caalami ah",
-    desc: "Suugaanta Soomaaliyeed oo gaarta akhristayaal caalami ah.",
-    icon: Globe2,
-  },
+  { icon: Lightbulb, title: "Hal-abuur", desc: "Abwaannadu waxay helayaan meel ay ku soo bandhigaan gabayo cusub." },
+  { icon: BookOpen, title: "Ururinta", desc: "Maanso waxay noqotaa keyd suugaaneed oo lagu kaydiyo gabayo hore." },
+  { icon: Users, title: "Bulsho", desc: "Abwaanno, qoraayaal, iyo akhristayaal ayaa hal meel ku kulmaya." },
+  { icon: Mic, title: "Cod & Muuqaal", desc: "Gabayada waxaa lagu dhageysan karaa ama lagu daawan karaa." },
+  { icon: PenTool, title: "Qorid", desc: "Qalab kuu sahlaya qorista, tafatirka, iyo kaydinta gabayada." },
+  { icon: Globe2, title: "Caalami", desc: "Suugaanta Soomaaliyeed oo gaarta akhristayaal caalami ah." },
 ];
 
-export default function FeaturesTimeline() {
+export default function HorizonFeatures() {
   return (
-    <section className="py-20 sm:py-24 md:py-28 bg-[#f6faff]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-
-        {/* Header */}
-        <div className="mb-14 sm:mb-16 md:mb-20 max-w-2xl">
-          <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 mb-3 sm:mb-4">
-            Sida Maanso u Shaqeyso
+    <section className="py-24 bg-slate-50/50 selection:bg-[#007ACC] selection:text-white">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* 1. Header Section */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="h-[2px] w-8 bg-[#007ACC]" />
+            <span className="text-[#007ACC] text-[11px] font-bold uppercase tracking-[0.3em]">Nidaamka Maanso</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-slate-900 leading-tight">
+            Sidee ayuu u <span className="text-[#007ACC] font-bold">shaqeeyaa?</span>
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg">
-            Maanso waa madal nidaamsan oo suugaanta Soomaaliyeed u qaabeysa si
-            casri ah oo waara.
-          </p>
         </div>
 
-        {/* Timeline */}
-        <div className="space-y-10 sm:space-y-12">
+        {/* 2. White Card Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {steps.map((item, index) => {
             const Icon = item.icon;
-
             return (
-              <div
-                key={index}
-                className="flex gap-4 sm:gap-6 items-start"
+              <div 
+                key={index} 
+                className="group p-10 bg-white border border-slate-100 rounded-[24px] shadow-sm hover:shadow-xl hover:shadow-[#007ACC]/5 transition-all duration-500 hover:-translate-y-1"
               >
-                {/* Icon + line */}
-                <div className="relative flex flex-col items-center flex-shrink-0">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-[#4189DD] text-white">
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                  </div>
-
-                  {/* Line (hidden on very small screens) */}
-                  {index !== steps.length - 1 && (
-                    <div className="hidden sm:block w-px h-full bg-[#4189DD]/30 mt-2" />
-                  )}
+                {/* BOLD ACTIVE ICON */}
+                <div className="w-14 h-14 rounded-2xl bg-[#007ACC] text-white flex items-center justify-center mb-8 shadow-lg shadow-[#007ACC]/20 transition-transform duration-500 group-hover:rotate-6">
+                  <Icon size={24} strokeWidth={2} />
                 </div>
-
-                {/* Card */}
-                <div className="flex-1 bg-white border border-[#4189DD]/20 rounded-xl p-4 sm:p-6 shadow-sm">
-                  <span className="text-xs sm:text-sm font-medium text-[#4189DD]">
-                    {item.step}
-                  </span>
-
-                  <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mt-1 mb-2">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
+                
+                <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  {item.title}
+                </h3>
+                
+                <p className="text-slate-500 leading-relaxed text-[15px] font-medium">
+                  {item.desc}
+                </p>
               </div>
             );
           })}
         </div>
+
+        {/* 3. CTA Banner */}
+        <div className="mt-20 p-10 md:p-14 rounded-[32px] bg-slate-100 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#007ACC] opacity-20 blur-[100px]" />
+            
+            <div className="relative z-10 text-center md:text-left">
+                <h3 className="text-3xl font-bold text-[#4189DD] mb-3">Ma doonaysaa inaad qayb ka noqoto?</h3>
+                <p className="text-slate-400 text-lg font-medium">Ku soo biir maanta oo dhis mustaqbalka maansada Soomaaliyeed.</p>
+            </div>
+
+            <button className="relative z-10 flex items-center gap-3 px-10 py-5 bg-[#007ACC] text-white font-bold rounded-xl hover:bg-white hover:text-[#007ACC] transition-all duration-300 shadow-xl shadow-[#007ACC]/20 active:scale-95 group">
+                kuso biir 
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+        </div>
+
       </div>
     </section>
   );
